@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Order</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Register New Order</h1>
+
+        <form action="/registerOrder" method="POST">
+            <div class="form-group">
+                <label for="orderId">Order ID:</label>
+                <input type="text" class="form-control" id="orderId" name="orderId" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="customerFirstName">First Name:</label>
+                <input type="text" class="form-control" id="customerFirstName" name="customerFirstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="customerLastName">Last Name:</label>
+                <input type="text" class="form-control" id="customerLastName" name="customerLastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" name="price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="foodOrdered">Food Ordered:</label>
+                <input type="text" class="form-control" id="foodOrdered" name="foodOrdered" required>
+            </div>
+
+            <div class="form-group">
+                <label for="orderDate">Order Date:</label>
+                <input type="date" class="form-control" id="orderDate" name="orderDate" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Order</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body> 
+</html>

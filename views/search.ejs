@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Order</title>
+</head>
+<body>
+    <h1>Search Order</h1>
+
+    <% if (order) { %>
+        <h2>Order Details for Order ID: <%= order.orderID %></h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= order._id %></td>
+                    <td><%= order.customerFirstName %> <%= order.customerLastName %></td>
+                    <td><%= order.quantity %></td>
+                    <td><%= order.price %></td>
+                    <td><%= order.totalAmount %></td>
+                </tr>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p><%= message %></p>
+    <% } %>
+
+    <!-- Add your other HTML content or links here -->
+
+</body>
+</html>

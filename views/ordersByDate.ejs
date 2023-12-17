@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders by Date</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Optional: Your Custom CSS -->
+    <!-- <link rel="stylesheet" href="path/to/your/custom.css"> -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Orders Placed on <%= date %></h1>
+        <% if (orders.length > 0) { %>
+            <table class="table table-bordered mt-3">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach(order => { %>
+                        <tr>
+                            <td><%= order._id %></td>
+                            <td><%= order.customerFirstName %> <%= order.customerLastName %></td>
+                            <td>$<%= order.totalPrice.toFixed(2) %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No orders found for this date.</p>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap JS CDN (for Bootstrap components requiring JavaScript) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Optional: Your Custom JavaScript -->
+    <!-- <script src="path/to/your/custom.js"></script> -->
+</body>
+</html>
