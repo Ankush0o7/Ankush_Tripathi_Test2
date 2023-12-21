@@ -1,60 +1,57 @@
-Book Model Class
-The Book class represents a basic model for book objects. It contains attributes such as id, name, author, price, and genre, providing a structure to store and manage book-related information.
+# Order Management System
 
-Purpose
-This class serves as a blueprint for creating book objects within an application. It encapsulates properties commonly associated with books, allowing for easy manipulation, storage, and retrieval of book details.
+This repository contains code for an Order Management System built with Node.js and MongoDB using Mongoose.
 
-Usage
-reating a Book Object
-To create a Book object, utilize the constructor by providing values for id, name, author, price, and genre.
+## Purpose
 
+The purpose of this system is to manage orders, including creation, modification, and retrieval of order details. It utilizes a MongoDB database to store order information and provides functionalities to interact with this data.
 
-Sure, here's a README file that you might use to explain the purpose and usage of this Book model class:
+## Model - Order
 
-Book Model Class
-The Book class represents a basic model for book objects. It contains attributes such as id, name, author, price, and genre, providing a structure to store and manage book-related information.
+The `Order` model represents the structure of an order within the system. It includes fields such as `_id`, `customerFirstName`, `customerLastName`, `quantity`, `price`, `foodOrdered`, `orderDateTime`, and `totalAmount`.
 
-Purpose
-This class serves as a blueprint for creating book objects within an application. It encapsulates properties commonly associated with books, allowing for easy manipulation, storage, and retrieval of book details.
+### Attributes
 
-Usage
-Creating a Book Object
-To create a Book object, utilize the constructor by providing values for id, name, author, price, and genre.
+- `_id`: Unique identifier for the order (orderId).
+- `customerFirstName`: First name of the customer placing the order.
+- `customerLastName`: Last name of the customer placing the order.
+- `quantity`: Quantity of the ordered item.
+- `price`: Price of the ordered item.
+- `foodOrdered`: Description/name of the food item ordered.
+- `orderDateTime`: Date and time when the order was placed.
+- `totalAmount`: Total amount calculated from quantity * price.
 
-java
-Copy code
-Book book = new Book(1, "Sample Book", "Sample Author", 29.99, "Sample Genre");
-Accessing and Modifying Attributes
-Retrieve and modify attributes using getter and setter methods.
+## Controllers
 
-java
-Copy code
-// Get book name
-String bookName = book.getName();
+### `registerOrder`
 
-// Set book price
-book.setPrice(19.99);
-Displaying Book Information
-Utilize the toString() method to get a string representation of the Book object.
+Creates a new order based on provided details, calculates the total amount, and saves it to the database.
 
-String bookInfo = book.toString();
-System.out.println(bookInfo);
-Model Structure
-int id: Unique identifier for the book.
-String name: Name/title of the book.
-String author: Author of the book.
-double price: Price of the book.
-String genre: Genre/category of the book.
+### `displayOrders`
 
+Retrieves all orders from the database and renders a view to display them.
 
-Methods
-getId(): Retrieve the book's ID.
-setId(int id): Set the book's ID.
-getName(): Retrieve the book's name.
-setName(String name): Set the book's name.
-getAuthor(): Retrieve the book's author.
-setAuthor(String author): Set the book's author.
-getPrice(): Retrieve the book's price.
-setPrice(double price): Set the book's price.
-getGenre(): Retrieve the book's genre.
-setGenre(String genre): Set the book's genre.
+### `searchOrder`
+
+Finds an order by its `_id` and renders a view displaying the order details.
+
+### `customerOrders`
+
+Retrieves all orders for a specific customer and calculates the total payment for their orders. Renders a view displaying the customer's orders and total payment.
+
+### `modifyOrder`
+
+Updates an existing order's details based on provided information, calculates the total amount, and redirects to a specified route after successful modification.
+
+### `ordersByDate`
+
+Fetches orders placed on a specific date and renders a view displaying these orders.
+
+## Usage
+
+- Ensure MongoDB is set up and running.
+- Install dependencies using `npm install`.
+- Use these controllers/routes within your Node.js application to manage orders.
+- Customize views/templates according to your application's UI requirements.
+
+This system provides a foundation for managing orders efficiently within a Node.js environment. Customize and extend it based on your specific use case.
